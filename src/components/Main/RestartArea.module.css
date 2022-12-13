@@ -1,0 +1,8 @@
+.restartIcon {
+  width: 2rem;
+  cursor: pointer;
+}
+
+.restartIcon:hover {
+  color: #14ffec;
+}

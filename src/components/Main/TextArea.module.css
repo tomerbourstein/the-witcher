@@ -1,0 +1,12 @@
+.textArea,
+.textArea:focus,
+.textArea:focus-visible {
+  background-color: #323232;
+  color: #14ffec;
+  width: 50rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+}
