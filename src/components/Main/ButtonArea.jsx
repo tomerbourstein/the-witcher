@@ -6,7 +6,7 @@ import classes from "./ButtonArea.module.css";
 const ButtonArea = () => {
   return (
     <div className={classes.buttonAreaBox}>
-      <Button content={"START TIMER"} />
+      <Button content={"START TYPING"} />
       <TimerArea />
     </div>
   );

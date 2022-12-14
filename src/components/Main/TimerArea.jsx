@@ -10,7 +10,7 @@ const TimerArea = () => {
     const convertToSeconds = () => timePassed() / 1000;
     const countdown = () => 59 - Math.floor(convertToSeconds());
     if (countdown() < 10 && countdown() > 0) return "0" + countdown();
-    if (countdown() < 0) return "0" + 0;
+    if (countdown() <= 0) return "0" + 0;
     return countdown();
   }
 
