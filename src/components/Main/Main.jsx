@@ -6,15 +6,14 @@ import TextArea from "./TextArea";
 import classes from "./Main.module.css";
 
 const Main = () => {
-    return (
-        <section className={classes.main}>
-            <ButtonArea />
-            <TextArea />
-            <DataArea />
-            <RestartArea />
-        </section>
-    )
-
-}
+  return (
+    <section className={classes.main}>
+      <ButtonArea />
+      <TextArea />
+      <DataArea />
+      <RestartArea />
+    </section>
+  );
+};
 
 export default Main;
