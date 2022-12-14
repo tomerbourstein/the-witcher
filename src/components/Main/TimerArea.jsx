@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { inputActions } from "../../store/input-slice";
 import classes from "./TimerArea.module.css";
 
 const TimerArea = () => {
+  const dispatch = useDispatch();
   const [timer, setTimer] = useState(59);
   let startTime = Date.now();
 
@@ -10,7 +13,10 @@ const TimerArea = () => {
     const convertToSeconds = () => timePassed() / 1000;
     const countdown = () => 59 - Math.floor(convertToSeconds());
     if (countdown() < 10 && countdown() > 0) return "0" + countdown();
-    if (countdown() <= 0) return "0" + 0;
+    if (countdown() <= 0) {
+      dispatch(inputActions.setInputDisabled());
+      return "0" + 0;
+    }
     return countdown();
   }
 

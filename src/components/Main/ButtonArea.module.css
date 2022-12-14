@@ -5,3 +5,13 @@
   gap: 1.5rem;
   max-width: 12rem;
 }
+
+.initialTimer {
+  min-height: 1.5rem;
+  font-size: 2rem;
+}
+
+p {
+  height: 100%;
+  margin: 0;
+}

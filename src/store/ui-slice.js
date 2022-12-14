@@ -1,11 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = {
+  timerRender: false,
+};
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
-  reducers: {},
+  reducers: {
+    startTimer(state) {
+      state.timerRender = true;
+    },
+    endTimer(state) {
+      state.timerRender = false;
+    },
+  },
 });
 
 export const uiActions = uiSlice.actions;
