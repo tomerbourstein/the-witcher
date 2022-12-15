@@ -42,7 +42,7 @@ const TextArea = (props) => {
     <div>
       <input
         type="text"
-        placeholder="Evil is Evil. Lesser, greater, middling… Makes no difference. The degree is arbitary. The defi..."
+        placeholder={props.quotes}
         className={classes.textArea}
         ref={inputRef}
         disabled={inputDisabled}
