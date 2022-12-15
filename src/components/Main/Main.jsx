@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { shuffleArray } from "../../utils";
 import witcherQuotes from "../../../quotes.json";
 
@@ -10,17 +11,23 @@ import TextArea from "./TextArea";
 import classes from "./Main.module.css";
 
 const Main = () => {
-  const quotes = witcherQuotes.quotes.map(quote => quote.quote);
+  const [quotes, setQuotes] = useState("");
+  const quotesData = witcherQuotes.quotes.map((quote) => quote.quote);
+
+  useEffect(() => {
+    const newQuotes = pickNewQuotes().join(" ");
+    setQuotes(newQuotes);
+  }, []);
 
   const pickNewQuotes = () => {
-    const shuffleQuotes = shuffleArray(quotes)
-    return shuffle.slice(0,10);
-  }
+    const shuffleQuotes = shuffleArray(quotesData);
+    return shuffleQuotes.slice(0, 6);
+  };
 
   return (
     <section className={classes.main}>
       <ButtonArea />
-      <TextArea />
+      <TextArea quotes={quotes} />
       <DataArea />
       <RestartArea />
     </section>
