@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { shuffleArray } from "../../utils";
-import witcherQuotes from "../../../quotes.json";
+import witcherQuotes from "../../config/quotes.json";
 
 import ButtonArea from "./ButtonArea";
 import DataArea from "./DataArea";
