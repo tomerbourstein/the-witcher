@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { inputDisabled: false, isInitial: true };
+const initialState = { inputDisabled: false, nextQuote: false };
 
 const inputSlice = createSlice({
   name: "input",
@@ -15,7 +15,7 @@ const inputSlice = createSlice({
     // },
     resetInput(state) {
       state.inputDisabled = false;
-      state.isInitial = false;
+      state.nextQuote = !state.nextQuote;
     },
   },
 });
