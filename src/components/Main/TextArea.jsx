@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import { dataActions } from "../../store/data-slice";
 import { shuffleArray } from "../../utils";
 import witcherQuotes from "../../config/quotes.json";
 import classes from "./TextArea.module.css";
@@ -16,9 +17,11 @@ const TextArea = (props) => {
   const inputRef = useRef(null);
 
   const quotesData = witcherQuotes.quotes.map((quote) => quote.quote);
+  let typedCharArray = [];
 
   useEffect(() => {
     const newQuotes = pickNewQuotes().join(" ");
+    dispatch(dataActions.saveInitialQuoteLength(newQuotes.length));
     setQuotes(newQuotes);
   }, [nextQuote]);
 
@@ -58,8 +61,8 @@ const TextArea = (props) => {
         enteredLetter === firstChar.toUpperCase()
       ) {
         setLetter((prevLetter) => enteredLetter);
-        console.log(quotes.slice(1));
         setQuotes((prevQuote) => prevQuote.slice(1));
+        dispatch(dataActions.renderData({ remainingQuote: quotes.slice(1) }));
       }
     } else return;
   };

@@ -1,4 +1,6 @@
 .footer {
+  color: #eeeeee;
+  opacity: 0.1;
   position: absolute;
   bottom: 0;
   width: 100%;

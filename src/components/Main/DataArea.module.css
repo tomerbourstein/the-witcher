@@ -1,4 +1,18 @@
 .dataArea {
-  width: 30rem;
+  color: #eeeeee;
+  width: 40rem;
   margin: -3rem auto 0;
+  opacity: 0.1;
+}
+.counterBox {
+  margin-bottom: 0.5rem;
+}
+
+.typedChar {
+  padding: 0 0.2rem;
+  font-size: 1.3rem;
+}
+.quote {
+  font-family: "Cinzel Decorative", serif;
+  letter-spacing: 2px;
 }
