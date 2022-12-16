@@ -39,17 +39,29 @@ const TextArea = (props) => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder={props.quotes}
-        className={classes.textArea}
-        ref={inputRef}
-        disabled={inputDisabled}
-        onKeyDown={startTypingHandler}
-        onBlur={inputBluerHandler}
-        autoFocus
-      ></input>
+    <div className={classes.inputSection}>
+      <div className={classes.wrapper}>
+        <div>
+          <input
+            type="text"
+            // placeholder={props.quotes}
+            className={classes.textArea}
+            ref={inputRef}
+            disabled={inputDisabled}
+            onKeyDown={startTypingHandler}
+            onBlur={inputBluerHandler}
+            autoFocus
+          />
+        </div>
+
+        <div>
+          <input
+            className={classes.transparentInput}
+            placeholder={props.quotes}
+            disabled
+          />
+        </div>
+      </div>
     </div>
   );
 };

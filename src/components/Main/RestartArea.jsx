@@ -8,7 +8,7 @@ const RestartArea = () => {
 
   const restartTypingHandler = (event) => {
     dispatch(uiActions.endTimer());
-    dispatch(inputActions.setInputEnabled());
+    dispatch(inputActions.resetInput());
   };
   return (
     <div>

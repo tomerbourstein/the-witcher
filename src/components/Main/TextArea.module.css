@@ -1,6 +1,16 @@
+.inputSection {
+  margin: 0 auto;
+}
+.wrapper {
+  position: relative;
+  /* bottom: 10px; */
+}
+
+.transparentInput,
 .textArea,
 .textArea:focus,
 .textArea:focus-visible {
+  position: relative;
   background-color: #323232;
   color: #14ffec;
   width: 50rem;
@@ -9,4 +19,11 @@
   font-size: 1.2rem;
   outline: none;
   border: none;
+  z-index: -1;
+}
+
+.transparentInput {
+  bottom: 54px;
+  background-color: transparent;
+  z-index: 1;
 }
