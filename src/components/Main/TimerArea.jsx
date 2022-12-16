@@ -8,6 +8,8 @@ const TimerArea = () => {
   const [timer, setTimer] = useState(59);
   let startTime = Date.now();
 
+  const endOfTime = timer <= 10 && timer > 0 ? classes.endOfTime : null;
+
   function timePassedInSeconds(startTime) {
     const timePassed = () => Date.now() - startTime;
     const convertToSeconds = () => timePassed() / 1000;
@@ -32,7 +34,9 @@ const TimerArea = () => {
 
   return (
     <div className={classes.timerAreaBox}>
-      <p>00:{timer}</p>
+      <p className={endOfTime}>
+        00:<span >{timer}</span>
+      </p>
     </div>
   );
 };

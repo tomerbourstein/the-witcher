@@ -7,3 +7,8 @@ p {
   height: 100%;
   margin: 0;
 }
+
+.endOfTime {
+  color: #14ffec;
+  opacity: .5;
+}
