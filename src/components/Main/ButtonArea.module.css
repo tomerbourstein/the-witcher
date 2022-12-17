@@ -15,3 +15,14 @@ p {
   height: 100%;
   margin: 0;
 }
+
+.wrapper {
+  position: absolute;
+}
+.geralt {
+  position: relative;
+  width: 9em;
+  right: 13rem;
+  bottom: 2.8rem;
+  opacity: .5;
+}
