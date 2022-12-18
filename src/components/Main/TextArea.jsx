@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import { dataActions } from "../../store/data-slice";
+import { inputActions } from "../../store/input-slice";
 import { shuffleArray } from "../../utils";
 import witcherQuotes from "../../config/quotes.json";
 import classes from "./TextArea.module.css";
@@ -9,6 +10,7 @@ import classes from "./TextArea.module.css";
 const TextArea = (props) => {
   const inputDisabled = useSelector((state) => state.input.inputDisabled);
   const nextQuote = useSelector((state) => state.input.nextQuote);
+  const inputLetter = useSelector((state) => state.input.inputLetter);
   const dispatch = useDispatch();
 
   const [focused, setFocused] = useState(true);
@@ -60,7 +62,7 @@ const TextArea = (props) => {
         enteredLetter === firstChar.toLowerCase() ||
         enteredLetter === firstChar.toUpperCase()
       ) {
-        setLetter((prevLetter) => enteredLetter);
+        dispatch(inputActions.setInputLetter(enteredLetter));
         setQuotes((prevQuote) => prevQuote.slice(1));
         dispatch(dataActions.renderData({ remainingQuote: quotes.slice(1) }));
       }
@@ -75,7 +77,7 @@ const TextArea = (props) => {
             type="text"
             className={classes.textArea}
             ref={inputRef}
-            value={letter}
+            value={inputLetter}
             disabled={inputDisabled}
             onKeyDown={startTypingHandler}
             onBlur={inputBluerHandler}

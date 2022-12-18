@@ -11,8 +11,10 @@ const dataSlice = createSlice({
     },
     renderData(state, action) {
       const remainingQuote = action.payload.remainingQuote;
-
       state.typedChar = state.initialQuoteChar - remainingQuote.length;
+    },
+    resetData(state) {
+      state.typedChar = 0;
     },
   },
 });

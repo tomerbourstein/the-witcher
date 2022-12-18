@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { inputDisabled: false, nextQuote: false };
+const initialState = {
+  inputDisabled: false,
+  nextQuote: false,
+  inputLetter: "",
+};
 
 const inputSlice = createSlice({
   name: "input",
@@ -9,13 +13,13 @@ const inputSlice = createSlice({
     setInputDisabled(state) {
       state.inputDisabled = true;
     },
-    // setInputEnabled(state) {
-    // },
-    // setIsInitial(state) {
-    // },
+    setInputLetter(state, action) {
+      state.inputLetter = action.payload;
+    },
     resetInput(state) {
       state.inputDisabled = false;
       state.nextQuote = !state.nextQuote;
+      state.inputLetter = "";
     },
   },
 });
