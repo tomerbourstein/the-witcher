@@ -1,9 +1,10 @@
 .footer {
   color: #eeeeee;
-  opacity: 0.1;
+  opacity: 0.2;
   position: absolute;
   bottom: 0;
   width: 100%;
   font-family: "Cinzel Decorative", cursive;
+  font-size: .8rem;
   letter-spacing: 1px;
 }
