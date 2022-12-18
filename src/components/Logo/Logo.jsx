@@ -5,7 +5,13 @@ import classes from "./Logo.module.css";
 const Logo = () => {
   return (
     <section className={classes.header}>
-      <img src={WitcherHead} className={classes.logo} />
+      <div>
+        <img src={WitcherHead} className={classes.logo} />
+      </div>
+      <div className={classes.eyes}>
+        <div className={classes.right}></div>{" "}
+        <div className={classes.left}></div>
+      </div>
     </section>
   );
 };

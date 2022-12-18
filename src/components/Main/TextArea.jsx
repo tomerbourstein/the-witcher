@@ -14,13 +14,11 @@ const TextArea = (props) => {
   const dispatch = useDispatch();
 
   const [focused, setFocused] = useState(true);
-  const [letter, setLetter] = useState("");
   const [quotes, setQuotes] = useState("");
   const inputRef = useRef(null);
 
   const quotesData = witcherQuotes.quotes.map((quote) => quote.quote);
-  let typedCharArray = [];
-
+  let Timeout;
   useEffect(() => {
     const newQuotes = pickNewQuotes().join(" ");
     dispatch(dataActions.saveInitialQuoteLength(newQuotes.length));
@@ -62,6 +60,11 @@ const TextArea = (props) => {
         enteredLetter === firstChar.toLowerCase() ||
         enteredLetter === firstChar.toUpperCase()
       ) {
+        if (Timeout) clearTimeout(Timeout);
+        Timeout = setTimeout(function () {
+          console.log("didnt type for 2 seconds");
+        }, 2000);
+
         dispatch(inputActions.setInputLetter(enteredLetter));
         setQuotes((prevQuote) => prevQuote.slice(1));
         dispatch(dataActions.renderData({ remainingQuote: quotes.slice(1) }));
