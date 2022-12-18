@@ -4,7 +4,6 @@
   margin: -3rem auto 0;
 }
 .counterBox {
-  /* text-decoration: underline; */
   opacity: 0.2;
   margin-bottom: 0.5rem;
 }
@@ -16,6 +15,7 @@
 .quote {
   opacity: 0.2;
   font-family: "Cinzel Decorative", serif;
+  font-size: .8rem;
   letter-spacing: 2px;
 }
 
