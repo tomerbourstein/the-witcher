@@ -20,7 +20,7 @@ const TextArea = (props) => {
   const quotesData = witcherQuotes.quotes.map((quote) => quote.quote);
 
   useEffect(() => {
-    const newQuotes = pickNewQuotes().join(" ");
+    const newQuotes = pickNewQuotes().join(" ").replace("’", "'");
     dispatch(dataActions.saveInitialQuoteLength(newQuotes.length));
     setQuotes(newQuotes);
   }, [nextQuote]);
@@ -69,7 +69,10 @@ const TextArea = (props) => {
       (charCode > 185 && charCode < 193) || // semi-colon, equel sign, comma, dash, period, forward slash, grave accent
       (charCode > 218 && charCode < 223) // open bracket, close bracket, back slash, single quote
     ) {
-      if (enteredLetter === "'" || enteredLetter === firstChar) {
+      if (
+        (enteredLetter === "'" && enteredLetter === firstChar) ||
+        enteredLetter === firstChar
+      ) {
         dispatch(uiActions.startTimer());
         dispatch(inputActions.setInputLetter(enteredLetter));
         setQuotes((prevQuote) => prevQuote.slice(1));
