@@ -1,0 +1,16 @@
+.nonDesktop {
+  display: none;
+  color: rgba(108, 108, 108, 0.933);
+  font-family: "Cinzel Decorative";
+  font-weight: 500;
+}
+
+.geralt {
+  width: 15rem;
+  padding: 2rem 0;
+}
+@media only screen and (max-width: 769px) {
+  .nonDesktop {
+    display: block;
+  }
+}

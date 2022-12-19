@@ -13,3 +13,10 @@
 .wrapper {
   padding-bottom: 2rem;
 }
+
+.nonDesktop {
+  display:none;
+}
+.main {
+
+}
