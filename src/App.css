@@ -11,5 +11,12 @@
 }
 
 .wrapper {
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
+}
+
+.nonDesktop {
+  display:none;
+}
+.main {
+
 }

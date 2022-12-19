@@ -14,12 +14,10 @@ const TextArea = (props) => {
   const dispatch = useDispatch();
 
   const [focused, setFocused] = useState(true);
-  const [letter, setLetter] = useState("");
   const [quotes, setQuotes] = useState("");
   const inputRef = useRef(null);
 
   const quotesData = witcherQuotes.quotes.map((quote) => quote.quote);
-  let typedCharArray = [];
 
   useEffect(() => {
     const newQuotes = pickNewQuotes().join(" ");
@@ -34,6 +32,21 @@ const TextArea = (props) => {
       setFocused(true);
     }
   }, [inputDisabled, focused]);
+
+  useEffect(() => {
+    let Timeout;
+    Timeout = setTimeout(function () {
+      console.log("didnt type for 2 seconds");
+      dispatch(uiActions.toggleAnimation(true));
+      setTimeout(() => {
+        dispatch(uiActions.toggleAnimation(false));
+      }, 310);
+    }, 700);
+
+    return () => {
+      clearTimeout(Timeout);
+    };
+  }, [inputLetter]);
 
   const pickNewQuotes = () => {
     const shuffleQuotes = shuffleArray(quotesData);
@@ -56,12 +69,12 @@ const TextArea = (props) => {
       (charCode > 185 && charCode < 193) || // semi-colon, equel sign, comma, dash, period, forward slash, grave accent
       (charCode > 218 && charCode < 223) // open bracket, close bracket, back slash, single quote
     ) {
-      dispatch(uiActions.startTimer());
       if (
         enteredLetter === "'" ||
         enteredLetter === firstChar.toLowerCase() ||
         enteredLetter === firstChar.toUpperCase()
       ) {
+        dispatch(uiActions.startTimer());
         dispatch(inputActions.setInputLetter(enteredLetter));
         setQuotes((prevQuote) => prevQuote.slice(1));
         dispatch(dataActions.renderData({ remainingQuote: quotes.slice(1) }));

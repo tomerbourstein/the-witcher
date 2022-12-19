@@ -1,8 +1,18 @@
 .restartIcon {
-  width: 2rem;
+  width: 2.6rem;
   cursor: pointer;
+  transform:rotate(90deg);
+  transition: color 0.25s;
 }
 
 .restartIcon:hover {
   color: #14ffec;
+}
+
+
+.animation {
+  color: #14ffec;
+  transform: rotate(450deg);
+  transition: transform 0.5s;
+
 }

@@ -25,7 +25,7 @@ const ButtonArea = () => {
       <p>01:00</p>
     </div>
   );
-  console.log(typedChar);
+
   let geraltFigure;
   switch (true) {
     case typedChar >= 1 && typedChar <= 60:
@@ -56,7 +56,6 @@ const ButtonArea = () => {
       geraltFigure = geralt0;
   }
   const startTypingHandler = (event) => {
-    console.log(event.type);
     dispatch(uiActions.startTimer());
   };
   return (
