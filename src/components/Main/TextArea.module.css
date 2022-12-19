@@ -27,6 +27,6 @@
   z-index: -1;
 }
 .transparentInput::placeholder {
-  padding-left: 10px;
+  padding-left: 20px;
   letter-spacing: 2px;
 }
