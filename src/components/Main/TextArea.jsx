@@ -69,12 +69,12 @@ const TextArea = (props) => {
       (charCode > 185 && charCode < 193) || // semi-colon, equel sign, comma, dash, period, forward slash, grave accent
       (charCode > 218 && charCode < 223) // open bracket, close bracket, back slash, single quote
     ) {
-      dispatch(uiActions.startTimer());
       if (
         enteredLetter === "'" ||
         enteredLetter === firstChar.toLowerCase() ||
         enteredLetter === firstChar.toUpperCase()
       ) {
+        dispatch(uiActions.startTimer());
         dispatch(inputActions.setInputLetter(enteredLetter));
         setQuotes((prevQuote) => prevQuote.slice(1));
         dispatch(dataActions.renderData({ remainingQuote: quotes.slice(1) }));
