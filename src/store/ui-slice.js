@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   timerRender: false,
+  blinkAnimation: false,
 };
 
 const uiSlice = createSlice({
@@ -13,6 +14,9 @@ const uiSlice = createSlice({
     },
     endTimer(state) {
       state.timerRender = false;
+    },
+    toggleAnimation(state) {
+      state.blinkAnimation = !state.blinkAnimation;
     },
   },
 });

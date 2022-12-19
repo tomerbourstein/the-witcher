@@ -30,11 +30,27 @@
   height: 3px;
   background-color: aqua;
   border-radius: 10px;
-  box-shadow: inset 0px 0px 0.5em 2px aqua, 0px 0px 0.5em 2px aqua;
+  box-shadow: inset 0px 0px 0.5em 2px #14ffec, 0px 0px 0.5em 2px #14ffec;
 }
 
-.blink {
-  box-shadow: none !important;
-  transition: box-shadow 0.25s;
+.startAnimation {
+  animation: blink 0.3s;
+}
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

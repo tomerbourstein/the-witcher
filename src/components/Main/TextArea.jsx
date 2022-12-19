@@ -18,7 +18,7 @@ const TextArea = (props) => {
   const inputRef = useRef(null);
 
   const quotesData = witcherQuotes.quotes.map((quote) => quote.quote);
-  let Timeout;
+
   useEffect(() => {
     const newQuotes = pickNewQuotes().join(" ");
     dispatch(dataActions.saveInitialQuoteLength(newQuotes.length));
@@ -32,6 +32,21 @@ const TextArea = (props) => {
       setFocused(true);
     }
   }, [inputDisabled, focused]);
+
+  useEffect(() => {
+    let Timeout;
+    Timeout = setTimeout(function () {
+      console.log("didnt type for 2 seconds");
+      dispatch(uiActions.toggleAnimation(true));
+      setTimeout(() => {
+        dispatch(uiActions.toggleAnimation(false));
+      }, 310);
+    }, 700);
+
+    return () => {
+      clearTimeout(Timeout);
+    };
+  }, [inputLetter]);
 
   const pickNewQuotes = () => {
     const shuffleQuotes = shuffleArray(quotesData);
@@ -60,11 +75,6 @@ const TextArea = (props) => {
         enteredLetter === firstChar.toLowerCase() ||
         enteredLetter === firstChar.toUpperCase()
       ) {
-        if (Timeout) clearTimeout(Timeout);
-        Timeout = setTimeout(function () {
-          console.log("didnt type for 2 seconds");
-        }, 2000);
-
         dispatch(inputActions.setInputLetter(enteredLetter));
         setQuotes((prevQuote) => prevQuote.slice(1));
         dispatch(dataActions.renderData({ remainingQuote: quotes.slice(1) }));
