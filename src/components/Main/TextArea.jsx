@@ -36,7 +36,6 @@ const TextArea = (props) => {
   useEffect(() => {
     let Timeout;
     Timeout = setTimeout(function () {
-      console.log("didnt type for 2 seconds");
       dispatch(uiActions.toggleAnimation(true));
       setTimeout(() => {
         dispatch(uiActions.toggleAnimation(false));
